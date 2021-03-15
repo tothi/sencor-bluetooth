@@ -22,7 +22,7 @@ Android devices.
 
 ## About the device
 
-![Sencor SWS 500](./sencor-sws500.jpg =300x)
+![Sencor SWS 500](./sencor-sws500.png)
 
 The [sencor-bleak-enum.py](./sencor-bleak-enum.py) script scans for the
 Sencor SWS 500 device (identifies it by Model Number `NGE76`), lists
