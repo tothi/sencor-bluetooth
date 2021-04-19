@@ -39,7 +39,8 @@ def handle_data(handle, value):
     humidity = int(value[4])
     if (type == 0) and (count == 1):
         flag = "[+] BLE DATA:"
-        print("[*] MQTT: PUBLISHING...")
+        print("[*] MQTT: PUBLISHING to {}".format(topic))
+        mqttc.connect(args.mqtthost, port=args.mqttport)
         mqttc.publish(topic+"/temperature", payload=temperature, retain=True)
         mqttc.publish(topic+"/humidity", payload=humidity, retain=True)
     else:
