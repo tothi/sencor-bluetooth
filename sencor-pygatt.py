@@ -32,8 +32,6 @@ mqttc.connect(args.mqtthost, port=args.mqttport)
 print("[*] MQTT: Authenticated")
 
 def handle_data(handle, value):
-    global mqttc
-
     type = int(value[0])
     count = int(value[1])
     channel2 = int(value[2])
