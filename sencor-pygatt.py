@@ -55,6 +55,11 @@ while True:
         device = adapter.connect(args.mac, timeout=60)
         print("[*] BLE: Connected")
 
+        battery = int(device.char_read("00002a19-0000-1000-8000-00805f9b34fb")[0])
+        print("[+] BLE: CHAR_READ Battery Level is {}%".format(battery))
+        mqttc.connect(args.mqtthost, port=args.mqttport)
+        mqttc.publish(topic+"/battery", payload=battery, retain=True)
+
         device.char_write("0000fff1-0000-1000-8000-00805f9b34fb", bytearray([0x01, 0x00]), wait_for_response=False)
         print("[*] BLE: CHAR_WRITE sent")
         device.subscribe( "00002a1c-0000-1000-8000-00805f9b34fb", callback=handle_data)
