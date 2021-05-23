@@ -14,7 +14,7 @@ parser.add_argument("-p", "--mqttport", type=int, default=8883, help="MQTT port 
 parser.add_argument("-C", "--cafile", type=str, help="MQTT TLS CA file (mandatory)", required=True)
 parser.add_argument("-c", "--certfile", type=str, help="MQTT TLS Client Certificate file (mandatory)", required=True)
 parser.add_argument("-k", "--keyfile", type=str, help="MQTT TLS Client Key file (mandatory)", required=True)
-parser.add_argument("-d", "--delay", type=int, default=60, help="Waiting time in secs for data (default: 60)")
+parser.add_argument("-d", "--delay", type=int, default=600, help="Waiting time in secs for data (default: 600)")
 parser.add_argument("-m", "--mac", type=str, help="MAC address of Sencor BLE device (mandatory)", required=True)
 parser.add_argument("-s", "--subtopic", type=str, default="sws_500", help="MQTT subtopic to use (default: sws_500")
 args = parser.parse_args()
